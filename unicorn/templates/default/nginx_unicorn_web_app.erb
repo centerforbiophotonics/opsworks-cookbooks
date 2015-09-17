@@ -4,8 +4,7 @@ upstream unicorn_<%= @application[:domains].first %> {
 
 server {
   listen 80;
-  return 301 https://<%= @application[:domains].first.split("_").first %>.ucdavis.edu/$request_uri;
-
+  
   server_name <%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
 
   <% if @application[:log_format] %>
