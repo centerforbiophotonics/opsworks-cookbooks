@@ -5,7 +5,7 @@ upstream unicorn_<%= @application[:domains].first %> {
 server {
   listen 80;
   
-  #rewrite ^(.*) https://$host$1 permanent;
+  rewrite ^(.*) https://$host$1 permanent;
 
   server_name <%= @application[:domains].join(" ") %> <%= node[:hostname] %>;
 
